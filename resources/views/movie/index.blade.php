@@ -7,6 +7,6 @@
 </head>
 <body>
     <h1>Movie Index</h1>
-    <h1>{{ dd($movies) }}</h1>
+    <h1>{{ dd($films) }}</h1>
 </body>
 </html>

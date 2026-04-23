@@ -7,5 +7,6 @@
 </head>
 <body>
     <h1>Movie Show</h1>
+    {{ dd ($movie)}}
 </body>
 </html>

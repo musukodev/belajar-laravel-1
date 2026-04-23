@@ -7,7 +7,6 @@ use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 
 
-
 class MovieController extends Controller implements HasMiddleware
 {
     public $movies = [];
@@ -24,18 +23,21 @@ class MovieController extends Controller implements HasMiddleware
     }
     public static function middleware()
     {
-        $this->middleware [
-            new Middleware{'isAuth'},
-            new Middleware{'isMember'},
-        ];
+        // return [
+        //     "isAuth",
+        //     new Middleware("isMember", only: ['show'])
+        // ];
     }
+
     public function index()
     {
-        return $this->movies;
+        $movies = $this->movies;
+        return view("movie.index", ['films' => $movies]);
     }
     public function show($id)
     {
-        return $this->movies[$id];
+        $movies = $this->movies;
+        return view("movie.show", ['movie' => $movies]);
     }
     public function store()
     {
